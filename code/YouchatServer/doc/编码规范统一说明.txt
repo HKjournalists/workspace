@@ -1,0 +1,27 @@
+代码规范统一下：
+
+变量：
+所有变量使用峰驼式风格：如：createUserId,所有变量，常量均带上注释标明代表的含义。
+
+方法：
+命名：小写字母开头，峰驼式风格  如：getWorkerByPlanId
+方法上需要加注释，必要的相对复杂的实现逻辑也需要加注释
+
+类名：
+大写字母开头，命名亦是峰驼式风格，类带注释，标明含义  如：Worker
+
+接口名：
+接口名以大写字母I开头，后续按照类名规则  如：IWorkerService
+示例：com.kk.service.org.IWorkerService
+
+接口实现类名：
+接口实现类 按照类名规则，后缀加Impl结尾 如：WorkerServiceImpl,且包路径在上层接口路径后加impl包
+示例：com.kk.service.org.impl.WorkerServiceImpl
+
+包结构路径：   com.kk开头，各模块相应各自命名一个包。如dao包下面基地模块为org,全路径：com.kk.dao.org，
+			培训计划模块：train全路径:com.kk.dao.train
+			
+			
+调试代码：System.out.println之类的代码尽量少,临时调试用的话，调试没问题后进行删除，可以尝试使用log.debug，log.info等
+			
+			

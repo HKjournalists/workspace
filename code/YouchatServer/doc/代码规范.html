@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Java开发代码规范</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2014-01-17 15:45:16 "/>
+<meta name="author" content="Lusar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Java开发代码规范</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 介绍 </a></li>
+<li><a href="#sec-2">2 编码规范 </a>
+<ul>
+<li><a href="#sec-2.1">2.1 命名规范 </a>
+<ul>
+<li><a href="#sec-2.1.1">2.1.1 命名原则 </a></li>
+<li><a href="#sec-2.1.2">2.1.2 包命名 </a></li>
+<li><a href="#sec-2.1.3">2.1.3 类，接口命名 </a></li>
+<li><a href="#sec-2.1.4">2.1.4 方法的命名 </a></li>
+<li><a href="#sec-2.1.5">2.1.5 变量命名 </a></li>
+<li><a href="#sec-2.1.6">2.1.6 项目编码统一为 UTF-8 </a></li>
+</ul>
+</li>
+<li><a href="#sec-2.2">2.2 注释规范 </a>
+<ul>
+<li><a href="#sec-2.2.1">2.2.1 Java 代码规范 </a></li>
+</ul>
+</li>
+<li><a href="#sec-2.3">2.3 编写规范 </a>
+<ul>
+<li><a href="#sec-2.3.1">2.3.1 三原则"对齐，分块，统一"。 </a></li>
+<li><a href="#sec-2.3.2">2.3.2 缩进排版 </a></li>
+<li><a href="#sec-2.3.3">2.3.3 语句 </a></li>
+</ul>
+</li>
+<li><a href="#sec-2.4">2.4 编写习惯与建议 </a>
+<ul>
+<li><a href="#sec-2.4.1">2.4.1 约定俗成 </a></li>
+<li><a href="#sec-2.4.2">2.4.2 21中代码的坏味道 </a></li>
+<li><a href="#sec-2.4.3">2.4.3 Eclipse 配置方法 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 介绍 </h2>
+<div class="outline-text-2" id="text-1">
+
+<ol>
+<li>
+为什么需要编码规范
+<ul>
+<li>
+一个软件的生命周期，大部分时间都是在后期的维护上面。
+</li>
+<li>
+我们写的代码，不仅仅是我们自己看，尤其维护人员也要解读。
+</li>
+<li>
+一个软件，不是单独个人开发，而是一个团队开发。
+</li>
+</ul>
+
+<p>统一的编码规范有助于，程序的易读性，理解性，维护性。
+</p></li>
+<li>
+相关编码规范参考
+<ul>
+<li>
+《Code Convention for the Java^TM Programming Language》
+
+</li>
+</ul>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 编码规范 </h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> 命名规范 </h3>
+<div class="outline-text-3" id="text-2.1">
+
+
+</div>
+
+<div id="outline-container-2.1.1" class="outline-4">
+<h4 id="sec-2.1.1"><span class="section-number-4">2.1.1</span> 命名原则 </h4>
+<div class="outline-text-4" id="text-2.1.1">
+
+<ol>
+<li>
+使用完整的英文名命名，慎用字母缩写。
+</li>
+<li>
+避免命名过长(30个字符内比较好）
+</li>
+<li>
+避免相似的命名
+</li>
+<li>
+命名最好代表具体的使用意义。
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2.1.2" class="outline-4">
+<h4 id="sec-2.1.2"><span class="section-number-4">2.1.2</span> 包命名 </h4>
+<div class="outline-text-4" id="text-2.1.2">
+
+<p>命名原则：采用反域名命名规范，全部使用小写字母。包名的前缀多是顶级域名，通常为com,edu,gov,mil,net,org. 二级包名多为项目名
+称，三级包名多为公司，组织，团队名， 四级包名多为功能模块名称。在我们这里是：
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">包名</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>com.idoukou.thu.activity</td><td>展示页面的Activity类，并控制业务操作。</td></tr>
+<tr><td>com.idoukou.thu.model</td><td>实体层，接收后台服务的数据实体</td></tr>
+<tr><td>com.idoukou.thu.service</td><td>业务层，负责业流程上的操作，完成与服务器端的交互</td></tr>
+<tr><td>com.idoukou.thu.ui</td><td>自定义的组件</td></tr>
+<tr><td>com.idoukou.thu.ui.adapter</td><td>自定义的适配器，完成对某些组件的条目显示</td></tr>
+<tr><td>com.idoukou.thu.utils</td><td>工具类集合</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div id="outline-container-2.1.3" class="outline-4">
+<h4 id="sec-2.1.3"><span class="section-number-4">2.1.3</span> 类，接口命名 </h4>
+<div class="outline-text-4" id="text-2.1.3">
+
+<p>命名原则：名词，尽量避免缩写。首字母大写，非首字母全部小写。类名包含多个单词时，采用驼峰表示方法。
+一般接口使用able，er，ible等后缀。<br/>
+<i>例如： class Raster; class ImageSprite;</i>
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">类名</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Acitivity类</td><td>Actiity后缀标识。 如欢迎迎面WellcomeActivity</td></tr>
+<tr><td>Adapter类</td><td>Adapter后缀标石。书籍详情适配类,BookDetailApdater</td></tr>
+<tr><td>Constants类</td><td>Constants标识后缀。如链接地址常量,HttpUrlConstants</td></tr>
+<tr><td>公共方法类</td><td>Tools或Manager后缀标识。如线程池管理类,ThreadPoolManager</td></tr>
+<tr><td>数据库类</td><td>DBHelper后缀标识。如书籍数据库,BookDBHelper</td></tr>
+<tr><td>自定义View类</td><td>以功能名词后缀标识.如CustomeListView。</td></tr>
+<tr><td>Service类</td><td>以Service后缀标识.如UserService</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div id="outline-container-2.1.4" class="outline-4">
+<h4 id="sec-2.1.4"><span class="section-number-4">2.1.4</span> 方法的命名 </h4>
+<div class="outline-text-4" id="text-2.1.4">
+
+<p>命名原则：动词或名词。第一个单词首字母小写，其后单词的首字母大写。<br/>
+<i>例如： public void run(); public String getBookName();</i> <br/>
+类中常用的方法的命名：
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>方法名</td><td>规范写法与说明</td></tr>
+<tr><td>initXXX()</td><td>初始化相关方法使用init前缀</td></tr>
+<tr><td>isXXX(),checkXXX()，hasXxx()</td><td>返回boolean类型的方法使用is,check或has前缀标识</td></tr>
+<tr><td>getXXXX()</td><td>返回基本类型，或自定义类型的方法，使用get前缀标识。</td></tr>
+<tr><td>findXxxx()</td><td>返回列表列表属性。</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div id="outline-container-2.1.5" class="outline-4">
+<h4 id="sec-2.1.5"><span class="section-number-4">2.1.5</span> 变量命名 </h4>
+<div class="outline-text-4" id="text-2.1.5">
+
+<p>命名原则：第一个单词说字母小写，其后单词首字母大写，多个单词采用驼峰标识方法。类中控件名称必须与xml布局id保持一直。
+<br/>
+<i>例如： filePath, textTitle</i>
+</p><ol>
+<li>
+常变量命名，全部大写，单词之间用下划线隔开。<br/>
+<i>例如： static final int  MIN_WIDTH = 4</i>
+</li>
+<li>
+尽量避免单个字符的变量名，除非是一次性的临时变量。临时变量通常取名为i,j,k,m和n,他们一般用于整型；c,d,e一般用于字
+符类型。
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2.1.6" class="outline-4">
+<h4 id="sec-2.1.6"><span class="section-number-4">2.1.6</span> 项目编码统一为 UTF-8 </h4>
+<div class="outline-text-4" id="text-2.1.6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> 注释规范 </h3>
+<div class="outline-text-3" id="text-2.2">
+
+
+</div>
+
+<div id="outline-container-2.2.1" class="outline-4">
+<h4 id="sec-2.2.1"><span class="section-number-4">2.2.1</span> Java 代码规范 </h4>
+<div class="outline-text-4" id="text-2.2.1">
+
+<p>Java程序有两类注释：实现注释（implementation comments) 和文档注释(document comments). 实现注释使用/*&hellip;*/和//界定的
+注释。文档注释由/**&hellip;.*/界定。文档注释可以通过javadoc工具转换成HTML文件。
+</p><ol>
+<li>
+文件注释
+所有的源文件都应该在开头有一个注释，列出类名，版本信息，日期和版本申明。<br/>
+如下：
+
+
+
+<pre class="example">/*
+ * 文件名
+ * 包含类名列表
+ * 创建日期
+ * 版本声明
+ */
+</pre>
+
+
+
+</li>
+<li>
+类注释
+每个类都要包含如下格式的注释，用于说明此类的功能等。
+
+
+
+<pre class="example">/**
+ * 类名
+ * @author 作者 &lt;br /&gt;
+ * 实现的主要功能
+ * 创建日期
+ * 修改者，修改日期，修改内容
+ */
+</pre>
+
+
+
+</li>
+</ol>
+<ol>
+<li>
+方法的注释
+每个方法都要包含如下格式的注释，包含当前方法的用途，当前方法的参数含义，当前方法的返回值的内容和抛出的异常列表。
+
+
+
+<pre class="example">/**
+ *
+ * 方法的一句话概述
+ * &lt;p&gt;方法详述（简单方法不必详述)&lt;/p&gt;
+ * @param s 说明参数含义
+ * @return 说明返回值含义
+ * @throws IOException 说明发生此异常的条件
+ * @throws NullPointerException 说明发生此异常的条件
+ */ 
+</pre>
+
+
+
+</li>
+<li>
+属性注释
+<ol>
+<li>
+<b>private</b> 及默认访问标识修饰的类属性使用单行注释
+</li>
+<li>
+<b>public</b> 以及 <b>protected</b> 访问标识修饰的类属性使用文档注释
+</li>
+</ol>
+
+<p>正确样例：
+</p>
+
+
+<pre class="example">private int dialogState = 0; // 对方状态 (0 不显示，1 显示)
+/**
+ * 最大高度
+ */
+public static final int MAX_WIDTH = 100;
+</pre>
+
+
+
+</li>
+<li>
+业务变更新增代码注释
+当版本确定后，新增业务代码时，需要添加注释说明,样本示例
+
+
+
+<pre class="example"><span class="linenr">1:  </span>//@begin added by Luc at 2013-12-24
+<span class="linenr">2:  </span>.......bla bla ...code ..
+<span class="linenr">3:  </span>//@end added by Luc at 2013-12-24
+</pre>
+
+
+
+</li>
+<li>
+业务变更修改代码注释
+当版本确定后，业务变更而修改代码时，需添加注释说明，样本示例
+
+
+
+<pre class="example">//@begin updated by Luc at 2013-12-24 
+....bla bla ...code ....
+//@end updated by Luc at 2013-12-24
+</pre>
+
+
+
+</li>
+<li>
+业务变更删除代码注释
+当版本确定后，业务变更而需删除代码时，需添加注释说明，样本示例
+
+
+
+<pre class="example">//@begin deleted by Luc at 2013-12-24
+// 删除代码行
+//@end deleted by Luc at 2013-12-24
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> 编写规范 </h3>
+<div class="outline-text-3" id="text-2.3">
+
+
+</div>
+
+<div id="outline-container-2.3.1" class="outline-4">
+<h4 id="sec-2.3.1"><span class="section-number-4">2.3.1</span> 三原则"对齐，分块，统一"。 </h4>
+<div class="outline-text-4" id="text-2.3.1">
+
+<ol>
+<li>
+对齐：变量对齐，符号对齐，注释对齐.
+
+
+
+<pre class="example">private String userName;  // 姓名
+private int    age;       // 年龄
+
+public void init(){
+    userName  =  "lc";
+    age       =  10;
+}
+</pre>
+
+
+
+</li>
+<li>
+分块： 相同操作的放到一块， 操作紧密的放到一块, 块之间用空行分割
+
+
+
+<pre class="example">/**
+ *  Http Get请求调用
+ * @param requsetUrl 请求路径
+ * @return 返回解析后封装的JSONObject对象
+ */
+ public static JSONObject getRequst(String requestUrl){
+    JSONObject jsonObject = new JSONObject();
+    
+    try{
+        URL               url  =  new URL(requestUrl);
+        HttpURLConncetion conn =  (HttpURLConnection)url.openConnection();
+        
+        conn.connect();                              //step-1 connect
+        
+        int resultCode = conn.getResponseCode();
+        if ( 200 == resultCode) {
+            InputStream       is     =   conn.getInputStream();
+            InputStreamReader isr    =   new InputStreamReader(is);
+            BufferedReader    reader =   new BufferedReader(isr);
+            StringBuffer      buffer =   new StringBuffer();
+            String            line   =   null;
+            
+            line = reader.readLine();                //step-2 read
+            while ( null != line) {
+                buffer.append(line);
+            }
+            reader.close();
+            
+            String content    = buffer.toString();   //step-3 parser
+                   jsonObject = new JSONObject(content);
+            
+            jsonObject.put("success", true);
+            jsonObject.put("msg", "操作成功");                  
+        }
+    }catch(Exception e){
+        jsonObject.put("success",false);
+        jsonObject.put("msg","操作发生异常");
+    }
+    return jsonObject;
+ }
+</pre>
+
+
+
+</li>
+<li>
+统一：统一编码UTF-8， 统一命名规范，统一注释规范
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2.3.2" class="outline-4">
+<h4 id="sec-2.3.2"><span class="section-number-4">2.3.2</span> 缩进排版 </h4>
+<div class="outline-text-4" id="text-2.3.2">
+
+<p>4个空格常被用作缩进排版的一个单位，在实际的应用中，进行采用Tab进行排版对齐。
+</p><ol>
+<li>
+行长度
+尽量避免一行长度超过108个字符，很多编辑器，IDE都超过单行能够一次显示的字符个数。
+</li>
+<li>
+换行
+当一个表达式无法容纳在一行内时，可依据下面规则进行断开之:
+<ul>
+<li>
+在一个逗号后面断开
+</li>
+<li>
+在一个操作符前面断开
+</li>
+<li>
+选择较高级别的断开，非较低级别的断开
+</li>
+<li>
+新一行应该与上一行同一级别的表达式的开头对齐
+</li>
+<li>
+若是以上规则到时换行，以8空格缩进。
+</li>
+</ul>
+</li>
+</ol>
+
+<p>下面是断开方法调用的例子：
+</p>
+
+
+<pre class="example">//avoid
+someMethod(longExpressoin1, longExpressoin2, longExpressoin3,
+                 longExpressoin4, longExpression5);
+//preffer
+var = someMethod1(longExpressoin1, 
+                         someMethod2( longExpression2,
+                                             longExpressoin3));                                                  
+</pre>
+
+
+
+<p>
+下面是两个断开算术表达式的例子，前者更好，因为断开位于较高级别。
+</p>
+
+
+<pre class="example">//preffer
+longName1 = longName2 * ( longName3 + longName4 - longName5)
+                      + 4 * longName6;
+//avoid
+longName1 = longName2 * (longName3 + longName4
+                                       - longName5) + 4 * longName6;
+</pre>
+
+
+
+<p>
+if 语句的换行通常使用8个空格，即一个Tab键，因为4个空格看起来比没对齐。
+</p>
+
+
+<pre class="example">//don't use this identation
+if (( conditionl &amp;&amp; condition2)
+    ||(condition3 &amp;&amp; condition4)  
+    || !(condition5 &amp;&amp; condition6)){
+    doSomethingHere();   //make this line easy to miss.
+}
+//use this indentation instead.
+if (( condition &amp;&amp; condition2)
+        || (condition3 &amp;&amp; condition4)
+        || !(condition5 &amp;&amp; condition6)){
+    dosomethingHere();
+}
+</pre>
+
+
+
+<p>
+三元运算法表达式的处理
+</p>
+
+
+<pre class="example">alpha = (alongBooleanExpression) ? beta : gamma; //ok
+alpha = (alongBooleanExpression) ? beta
+                                 : gama;         //ok
+alpha = (alongBooleanExpresson)
+        ? beta
+        : gamma;  //bad
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.3.3" class="outline-4">
+<h4 id="sec-2.3.3"><span class="section-number-4">2.3.3</span> 语句 </h4>
+<div class="outline-text-4" id="text-2.3.3">
+
+<ol>
+<li>
+简单语句，每行至多包含一条语句
+
+
+
+<pre class="example">argv++;     //correct
+argv++; argc--; //avoid!       
+</pre>
+
+
+
+</li>
+<li>
+所有的if,while, for 都不能省略{}符号。
+
+
+
+<pre class="example">if (isSent)
+    return true;   //avoid
+if (isSent)
+{                  //avoid
+    return true;
+}
+
+if (isSent){
+    return true;   //ok
+}
+</pre>
+
+
+
+</li>
+<li>
+getter, setter方法，可以简单的写到一行上
+
+
+
+<pre class="example">class Book{
+    private String  name;   //书名
+    private Integer id;     //书籍id
+
+    public String  getName(){ return name; }
+    public Integer getId()  { return id;   }
+    public void setName(String name) { this.name = name; }
+    public void setId(Integer id)    { this.id   = id;   } 
+}
+</pre>
+
+
+
+</li>
+<li>
+空格
+下列情况应该使用空格：
+<ul>
+<li>
+一个紧跟着括号的关键字应该被空格分开，例如：
+
+
+
+<pre class="example">while （true) {
+     .....
+ }
+</pre>
+
+
+
+<p>
+注意：空格不应该置于方法名与其左括号之间。这件有助于区别关键字与方法调用。
+</p></li>
+<li>
+空格应该位于参数列表中的逗号的后面
+</li>
+<li>
+所有的二元运算符，处理"."，应该使用空格将之与操作数分开。一元操作符和操作数之间不应该加空格，
+比如：负号（"-")、自增("++")和自减("&ndash;").例如：
+
+
+
+<pre class="example">a += c + d；
+a = (a + b) / (c * d);
+while( d++ = s++){
+    n++;
+}
+</pre>
+
+
+
+</li>
+<li>
+for 语句中的表达式应该被空格分开，例如：
+for ( expr1; expr2; expr3)
+</li>
+<li>
+强制类型转换后应该更一个空格，例如：
+
+
+
+<pre class="example">myMethod((byte) aNum, (Object) x);
+</pre>
+
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.4" class="outline-3">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> 编写习惯与建议 </h3>
+<div class="outline-text-3" id="text-2.4">
+
+
+</div>
+
+<div id="outline-container-2.4.1" class="outline-4">
+<h4 id="sec-2.4.1"><span class="section-number-4">2.4.1</span> 约定俗成 </h4>
+<div class="outline-text-4" id="text-2.4.1">
+
+<ol>
+<li>
+变量赋值
+<ul>
+<li>
+避免在一个语句中，对多个变量赋值
+</li>
+<li>
+不要将赋值运算与相等关系运算混淆
+</li>
+<li>
+不要使用内嵌的赋值运算符
+
+
+
+<pre class="example">d = (a = b + c) + r; //avoid
+// preffer
+a = b + c;
+d = a + r;
+</pre>
+
+
+
+</li>
+<li>
+多使用圆括号划分层次
+
+
+
+<pre class="example">if ( a==b &amp;&amp; c == d) //avoid
+if ((a==b) &amp;&amp; (c==d)) //ok
+</pre>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2.4.2" class="outline-4">
+<h4 id="sec-2.4.2"><span class="section-number-4">2.4.2</span> 21中代码的坏味道 </h4>
+<div class="outline-text-4" id="text-2.4.2">
+
+<ol>
+<li>
+Dulicated Code <br/>
+代码重复几乎是最常见的异味，他也是Refactoring的主要目标之一。
+</li>
+<li>
+Long method <br/>
+一个方法应当具有自我独立的意图，不要把几个意图放在一起。
+</li>
+<li>
+Large Class <br/>
+大类就是把太多的责任交给一个类了，应该采用one class one responsibility
+</li>
+<li>
+Divergent Change <br/>
+一个类里面的内容变化率不同。某些状态一个小时变一次，有些几年变一次；面向对象的
+抽象就是讲相对不变的与相对变化的进行隔离。这使得相对不变的可以重用。
+</li>
+<li>
+Shotgun Surgery <br/>
+这正好和上面相反。对系统一个地方的改变涉及到其他许多地方的改变。这些变化率和变化内容相似的状态和行为通常应该放在
+一个类中。
+</li>
+<li>
+Feature Envy <br/>
+对象的目的就是封装状态以及这些状态紧密相关的行为。如果一个类的方法频繁用get方法存取其他类的状态进行计算，那么你要
+考虑把行为涉及到的状态数目最多的那个类。
+</li>
+<li>
+Data Clumps <br/>
+某些数据通常想孩子一样成群玩耍；一起出现在很多类的成员变量中，一起出现在许多方法的参数中&hellip;, 这些数据或许应该自己
+独立形成类。
+</li>
+<li>
+Primitive Obsession <br/>
+面向对象的新手通常习惯使用几个原始类型的数据来表示一个概念。譬如对于范围，他们会使用两个数字。对于money，他们会使
+用一个浮点数表示。因为你没有使用对象表达问题中的存在的概念，这使得代码难以理解，解决问题的难度大大增加。好的习惯
+是扩充语言所能提供的原始类型，用小对象来表示范围、金额、转化率等等。
+</li>
+<li>
+Switch Statement <br/>
+基于常量的开关语句是OO的大敌，你应当把他变为子类，state或strategy。
+</li>
+<li>
+Parallel Inheritance Hierarchies <br/>
+并行的继承层次是shotgun surgery的特殊情况。因为当你改变一个层次中的某一个类时，你必须同时改变另外一个层次的并行
+子类。
+</li>
+<li>
+Lazy Class <br/>
+一个干活不多的类。类的维护需要额外的开销。如果一个类的责任太少，就应当消除。
+</li>
+<li>
+Speculative Generality <br/>
+一个类实现了从未用到的功能的通用性。通常这样的类或方法唯一的用户是testcase，不要犹豫的删除它。
+</li>
+<li>
+Temporay Field <br/>
+一个对象的属性可能只在某些情况下有意义。这样的代码将难以理解。专门建立一个对象来持有这样的孤儿属性，把只和
+他相关的行为移动到该类。最常见的是一个特定算法需要某些这些该算法才有用的变量。
+</li>
+<li>
+Message Chain <br/>
+消息链发生在于当一个客户向一个对象要求另一个对象，然后客户又向这另一对象要求另一个对象，&hellip;.
+如此&hellip;,这时，需要隐藏分派。
+</li>
+<li>
+Middle Man <br/>
+对象的基本特性之一就是封装，而你经常会通过分派去实现分装。但是这一步不能走的太远，如果你发现
+一个接口的一大半方法都在做分派，你可能需要移去这个中间人。
+</li>
+<li>
+Inappropriate Intimacy <br/>
+某些类相互之间太亲密，他们花费了太多的时间去专研对方的私有部分。对人类而言，我们也许不应该太假正经了
+，但我们应该让自己的类严格遵守禁欲主义。
+</li>
+<li>
+Alternative Classes with Different Interfaces <br/>
+做相同事情的方法不同的函数signature,一致把他们往类层次上移，直至协议一致。
+</li>
+<li>
+Incomplete Library Class <br/>
+要建立一个好的类库非常困难。我们大量的工作都是基于类库实现的，然后如此广泛而又
+相异的目标对库构建者提出了苛刻的要去。库构建者也不是万能的。有时候我们会发现库
+类无法实现我们的需求功能。而直接对库类的修改非常困难。这时候就需要用各种手段进行Refactoring。
+</li>
+<li>
+Data Class <br/>
+对象包括状态和行为。如果一个类只有状态没有行为，那么肯定有什么地方出错了。
+</li>
+<li>
+Refused Bequest <br/>
+超类传下来很多行为和状态，而子类只是用了其中的一小部分。这通常以为着你的类层次有问题。
+</li>
+<li>
+Comments <br/>
+经常觉得写很多注释便是你的代码难以理解，如果是这样的，表示需要refactoring.
+
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-2.4.3" class="outline-4">
+<h4 id="sec-2.4.3"><span class="section-number-4">2.4.3</span> Eclipse 配置方法 </h4>
+<div class="outline-text-4" id="text-2.4.3">
+
+<ol>
+<li>
+注释模板
+在eclipse的preferences中，选择 java-&gt;code sytle-&gt;code Template
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

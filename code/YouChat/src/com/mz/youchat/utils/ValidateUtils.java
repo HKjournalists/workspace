@@ -1,0 +1,26 @@
+package com.mz.youchat.utils;
+
+/**
+ * ?????????
+ * @author lusar
+ *
+ */
+public class ValidateUtils {
+
+	/**
+	 * ??????????????????????????????????????????
+	 * @param imgPath
+	 * @return
+	 */
+	public static boolean checkIsImageFilePath(String imgPath){
+		if(StringUtils.isBlank(imgPath)){
+			return false;
+		}
+		if(imgPath.endsWith("png") || imgPath.endsWith("jpg")
+				|| imgPath.endsWith("jpeg") || imgPath.endsWith("gif")){
+			return true;
+		}
+		return false;
+	}
+	
+}
