@@ -30,8 +30,8 @@ import org.dom4j.io.XMLWriter;
  */
 public class MybatisMapperUtil_MYSQL {
 	public static void main(String[] args) {
-//	    buildMapperXml(Manager.class,"com.ziteng.dao.user","E:\\program\\紫藤\\develop\\kk\\config\\mapper","");
-//	    buildMapperXml(Car.class,"com.ziteng.dao.car","E:\\program\\紫藤\\develop\\code\\ziteng\\config\\mapper","");
+//	    buildMapperXml(Manager.class,"com.youchat.dao.user","E:\\program\\紫藤\\develop\\kk\\config\\mapper","");
+//	    buildMapperXml(Car.class,"com.youchat.dao.car","E:\\program\\紫藤\\develop\\code\\youchat\\config\\mapper","");
         System.out.println("create over");
 	}
 	

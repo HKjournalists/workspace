@@ -34,7 +34,7 @@ import com.youchat.entity.user.Manager;
  */
 public class MybatisMapperUtil_Oracle {
     public static void main(String[] args) {
-        buildMapperXml("seq_order",Manager.class,"com.ziteng.dao.user","E:\\program\\紫藤\\develop\\kk\\config\\mapper","");
+        buildMapperXml("seq_order",Manager.class,"com.youchat.dao.user","E:\\program\\紫藤\\develop\\kk\\config\\mapper","");
         System.out.println("create over");
     }
     

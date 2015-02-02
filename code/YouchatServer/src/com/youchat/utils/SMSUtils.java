@@ -26,7 +26,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-import com.ziteng.utils.MD5Util;
+import com.youchat.utils.MD5Util;
 
 /** 
  * <b>类描述：世纪之村短信接口</b><br/>  

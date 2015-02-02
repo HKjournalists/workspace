@@ -3,7 +3,7 @@ package com.youchat.utils;
 import net.sf.json.JSONObject;
 
 import com.youchat.dto.biz.UploadResult;
-import com.ziteng.utils.StringUtil;
+import com.youchat.utils.StringUtil;
 
 
 public class JSONUtil {   

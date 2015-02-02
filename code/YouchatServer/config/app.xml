@@ -16,6 +16,6 @@
 	
 	<!-- Scan components  -->
 	<!-- Only for service  -->
-	<context:component-scan base-package="com.ziteng.utils" />
-	<context:component-scan base-package="com.ziteng.service" />
+	<context:component-scan base-package="com.youchat.utils" />
+	<context:component-scan base-package="com.youchat.service" />
 </beans>

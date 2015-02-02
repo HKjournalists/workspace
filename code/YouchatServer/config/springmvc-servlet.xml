@@ -66,7 +66,7 @@
 				</bean>
 				-->
 				<!-- 自定义JSON解析 -->
-				<bean name="myJsonView" class="com.ziteng.spring.expand.MyMappingJacksonJsonView"></bean>
+				<bean name="myJsonView" class="com.youchat.spring.expand.MyMappingJacksonJsonView"></bean>
 			</list>
 		</property>
 	</bean>
@@ -89,7 +89,7 @@
 	</bean>
 
 	<!-- 自动搜索@Controller标注的类 -->
-	<context:component-scan base-package="com.ziteng.web.controller" />
+	<context:component-scan base-package="com.youchat.web.controller" />
 	
     <!--  开启这个配置，spring才能识别@Scheduled注解   -->  
     <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>  

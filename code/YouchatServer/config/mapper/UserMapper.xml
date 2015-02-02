@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.ziteng.dao.user.IUserDao">
-	<resultMap type="com.ziteng.entity.user.User" id="userMap">
+<mapper namespace="com.youchat.dao.user.IUserDao">
+	<resultMap type="com.youchat.entity.user.User" id="userMap">
 		<id property="id" column="id"/>
 		<result property="userName" column="user_name"/>
 		<result property="fullName" column="full_name"/>
@@ -18,13 +18,13 @@
 		<result property="createTime" column="create_time"/>
 		<result property="modifyTime" column="modify_time"/>
 	</resultMap>
-	<insert id="insert" parameterType="com.ziteng.entity.user.User" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+	<insert id="insert" parameterType="com.youchat.entity.user.User" keyProperty="id" useGeneratedKeys="true" flushCache="true">
 		insert into t1_user
 		(id,user_name,full_name,id_card,email,phone_number,sex,type,address,birth,avatar,password,create_time,modify_time)
 		values
 		(#{id},#{userName},#{fullName},#{idCard},#{email},#{phoneNumber},#{sex},#{type},#{address},#{birth},#{avatar},#{password},#{createTime},#{modifyTime})
 	</insert>
-	<update id="update" parameterType="com.ziteng.entity.user.User" flushCache="true">
+	<update id="update" parameterType="com.youchat.entity.user.User" flushCache="true">
 		update t1_user set
 		user_name=#{userName},
 		full_name=#{fullName},
@@ -41,7 +41,7 @@
 		modify_time=#{modifyTime}
 		where id=#{id}
 	</update>
-	<delete id="delete" parameterType="com.ziteng.entity.user.User" flushCache="true">
+	<delete id="delete" parameterType="com.youchat.entity.user.User" flushCache="true">
 		delete from t1_user where id=#{id}
 	</delete>
 	<delete id="deleteById" parameterType="int" flushCache="true">
@@ -68,14 +68,14 @@
 		</choose>
 	</sql>
 	
-	<select id="selectEntityList" parameterType="com.ziteng.dto.query.user.UserQuery" resultMap="userMap">		
+	<select id="selectEntityList" parameterType="com.youchat.dto.query.user.UserQuery" resultMap="userMap">		
 		select * from t1_user 
 			<include refid="selectEntityList_where"/>
 			<include refid="orderBySql"/>
 			<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
 	</select>
 	
-	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.user.UserQuery" resultType="int">
+	<select id="selectEntityCount" parameterType="com.youchat.dto.query.user.UserQuery" resultType="int">
 		select count(id) from t1_user
 		<include refid="selectEntityList_where"/>
 	</select>

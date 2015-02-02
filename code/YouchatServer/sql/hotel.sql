@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : 本机拼车数据库
 Source Server Version : 50520
 Source Host           : localhost:3306
-Source Database       : ziteng
+Source Database       : youchat
 
 Target Server Type    : MYSQL
 Target Server Version : 50520

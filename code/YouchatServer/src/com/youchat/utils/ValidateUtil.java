@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-import com.ziteng.utils.StringUtil;
+import com.youchat.utils.StringUtil;
 
 
 public class ValidateUtil {
