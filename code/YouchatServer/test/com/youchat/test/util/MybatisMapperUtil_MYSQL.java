@@ -20,8 +20,6 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import com.youchat.entity.car.Car;
-
 
 /** 
  * <b>类描述：</b><br/>  
@@ -33,7 +31,7 @@ import com.youchat.entity.car.Car;
 public class MybatisMapperUtil_MYSQL {
 	public static void main(String[] args) {
 //	    buildMapperXml(Manager.class,"com.ziteng.dao.user","E:\\program\\紫藤\\develop\\kk\\config\\mapper","");
-	    buildMapperXml(Car.class,"com.ziteng.dao.car","E:\\program\\紫藤\\develop\\code\\ziteng\\config\\mapper","");
+//	    buildMapperXml(Car.class,"com.ziteng.dao.car","E:\\program\\紫藤\\develop\\code\\ziteng\\config\\mapper","");
         System.out.println("create over");
 	}
 	
